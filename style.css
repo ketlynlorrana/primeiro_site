@@ -1,176 +1,57 @@
-/* =========================================================
-   VARIÁVEIS DE CORES E TIPOGRAFIA
-   ========================================================= */
-:root {
-    --primary-green: #2E7D32; /* Verde Agro */
-    --light-green: #4CAF50;
-    --dark-green: #1B5E20;
-    --tech-blue: #0288D1; /* Azul Tecnologia */
-    --text-color: #333333;
-    --bg-light: #F4F6F8;
-    --white: #FFFFFF;
-    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* =========================================================
-   ESTILOS GERAIS
-   ========================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: var(--font-main);
-    color: var(--text-color);
-    background-color: var(--bg-light);
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif; /* Fonte universal herdada por todos */
+    margin: 0;                                 /* Remove margens padrão do navegador */
+    padding: 0;
 }
 
-/* =========================================================
-   CABEÇALHO E NAVEGAÇÃO
-   ========================================================= */
 header {
-    background-color: var(--white);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: #b4cbc5; /* cor de fundo */
+    color: #013005;            /* cor da fonte */
+    text-align: center;        /* centraliza o texto horizontalmente */
+    max-width: 800px;          /* define a largura máxima que o elemento pode ter */
+    margin: 0 auto;            /* centraliza o bloco inteiro na tela */
+    padding: 16px;             /* espaçamento interno entre a borda e o conteúdo */
 }
 
-nav {
-    max-width: 1200px;
+h1 {
+    color: #17048f;
+}
+
+main {
+    background-color: #e2e7cc;
+    color: #013005;
+    max-width: 800px;
     margin: 0 auto;
+    padding: 16px;
+}
+
+article {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    margin-bottom: 60px; /* Empurra o artigo de baixo, criando o espaço */
 }
 
-.logo span {
-    color: var(--primary-green);
-    font-weight: bold;
-    font-size: 24px;
+img {
+    width: 150px;           /* define a largura fixa da imagem */
+    height: 150px;          /* define a altura fixa da imagem */
+    border: 2px solid #17048f; /* adiciona uma borda sólida de 2px na cor azul/roxa */
+    display: block;         /* transforma a imagem em um bloco para aceitar margens verticais e */
+    margin: 0 auto;        /* centraliza a imagem horizontalmente na tela */
+    align-self: center;
 }
 
-.logo span.tech {
-    color: var(--tech-blue);
+.artigo-autor {
+    font-weight: bold; /* deixa o texto em negrito */
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
+.texto-curto {
+    max-width: 65ch; /* Limita a linha a cerca de 45 caracteres */
 }
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-green);
-}
-
-/* =========================================================
-   SEÇÃO DE DESTAQUE (HERO)
-   ========================================================= */
-.hero {
-    background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.8)), url('sua-imagem-campo-tecnologia.jpg') center/cover no-repeat;
-    color: var(--white);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn {
-    background-color: var(--tech-blue);
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0277BD;
-}
-
-/* =========================================================
-   SEÇÃO DE CARACTERÍSTICAS (CARDS)
-   ========================================================= */
-.features {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card i {
-    font-size: 40px;
-    color: var(--primary-green);
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-}
-
-/* =========================================================
-   RODAPÉ
-   ========================================================= */
 footer {
-    background-color: var(--dark-green);
-    color: var(--white);
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-}
-
-/* =========================================================
-   RESPONSIVIDADE (PARA CELULARES)
-   ========================================================= */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Simplificado para focar no CSS base */
-    }
-    
-    .hero h1 {
-        font-size: 32px;
-    }
+    background-color: #b4cbc5; /* Mesma cor escura do texto do header para combinar */
+    color: #013005;            /* Cor da fonte branca para dar contraste e leitura */
+    text-align: center;        /* Centraliza o texto horizontalmente */
+    max-width: 800px;          /* Mantém o mesmo alinhamento do header e do main */
+    margin: 0 auto;            /* Centraliza o bloco inteiro na tela */
+    padding: 20px;             /* Cria um espaçamento interno para o fundo aparecer bem */
+    font-size: 14px;           /* Deixa o texto do rodapé um pouco menor e discreto */
 }

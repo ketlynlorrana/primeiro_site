@@ -1,46 +1,33 @@
-// Simulação de leitura de dados de um sensor IoT no campo
-class SensorAgricola {
-    constructor(nome, localizacao) {
-        this.nome = nome;
-        this.localizacao = localizacao;
-    }
-
-    // Método para gerar umidade do solo de forma aleatória (simulando telemetria)
-    gerarUmidadeSolo() {
-        return (Math.random() * (70 - 30) + 30).toFixed(2); // Retorna entre 30% e 70%
-    }
-}
-
-// Inicializando o sensor
-const sensorTalhaoA = new SensorAgricola("Sensor Umidade V2", "Talhão Sul");
-
-// Função para atualizar os dados na interface web (DOM)
-function atualizarDashboardAgro() {
-    const umidade = sensorTalhaoA.gerarUmidadeSolo();
-    const dataHora = new Date().toLocaleString('pt-BR');
-
-    // Atualiza os elementos HTML (supondo IDs correspondentes no seu site)
-    const displayUmidade = document.getElementById("umidade-solo");
-    const displayStatus = document.getElementById("status-irrigacao");
-    const displayUltimaLeitura = document.getElementById("ultima-leitura");
-
-    if (displayUmidade) displayUmidade.innerText = `${umidade}%`;
-    if (displayUltimaLeitura) displayUltimaLeitura.innerText = dataHora;
-
-    // Lógica de alerta para irrigação inteligente
-    if (displayStatus) {
-        if (parseFloat(umidade) < 40) {
-            displayStatus.innerText = "🚨 Solo Seco! Acionando irrigação...";
-            displayStatus.style.color = "red";
-        } else {
-            displayStatus.innerText = "💧 Umidade Ideal. Sistema em espera.";
-            displayStatus.style.color = "green";
-        }
-    }
-}
-
-// Configura o script para atualizar o painel a cada 5 segundos (Tempo Real)
-setInterval(atualizarDashboardAgro, 5000);
-
-// Executa a primeira vez que a página carrega
-document.addEventListener("DOMContentLoaded", atualizarDashboardAgro);
+1  // Seleciona todos os elementos <button> da página e os guarda na constante 'botoes' como uma lista
+2  const botoes = document.querySelectorAll("button");
+3  
+4  // Passa por cada botão da lista (um por um) para aplicar as regras abaixo
+5  botoes.forEach(function (botao) {
+6  
+7      // Cria uma variável interna para controlar se O BOTÃO ATUAL foi clicado ou não (começa como falso)
+8      let curtiu = false;
+9  
+10     // Adiciona um "escutador" que aguarda o clique especificamente neste botão
+11     botao.addEventListener("click", botaoClicado);
+12 
+13     // Define a função que roda toda vez que este botão específico recebe um clique
+14     function botaoClicado() {
+15         // Exibe uma mensagem no console do navegador apenas para testar se o clique funcionou
+16         console.log("fui clicado");
+17 
+18         // Procura e seleciona a tag <span> (o número do contador) que está dentro deste botão
+19         let texto = botao.querySelector("span");
+20 
+21         // Se o usuário ainda não tiver clicado neste botão (curtiu é igual a false)
+22         if (curtiu === false) {
+23             texto.textContent++; // Soma +1 ao número atual do contador
+24             curtiu = true;       // Muda o status para true (indicando que agora está "curtido")
+25 
+26         // Caso o usuário clique novamente (ou seja, curtiu já era true)
+27         } else {
+28             texto.textContent--; // Subtrai -1 do número do contador (desfaz a curtida)
+29             curtiu = false;      // Volta o status para false (permitindo curtir de novo depois)
+30         }
+31     }
+32 });
+33 
